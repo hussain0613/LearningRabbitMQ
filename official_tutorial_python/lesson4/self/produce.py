@@ -38,7 +38,7 @@ channel.basic_publish(
     )
 )
 # Publisher doesn't know about queues, it just sends messages to exchanges, specifying a routing key
-# The exchange then decides what to do with the message, generally it will be sent to the queue with that contains the routing key
+# The exchange then decides what to do with the message, generally it will be sent to all the queues that contain the routing key
 # It seems, if routing key is same as the queue name, the message will be sent to that queue
 
 # Consumer binds the queue to the exchange, specifying the routing key, so that it will receive messages with that routing key
@@ -47,7 +47,7 @@ channel.basic_publish(
 # and will be delivered to the consumer when it starts running
 # If the queue is not declared and bound to the exchange, the message will be dropped if the consumer is not running with the correct routing key
 
-print(f" [x] Sent '{msg}'")
+print(f" [x] Sent '{severity}':'{msg}'")
 
 connection.close()
 

@@ -23,7 +23,7 @@ channel.basic_publish(
     body=msg,
 )
 
-print(f" [x] Sent '{msg}'")
+print(f" [x] Sent '{severity}':'{msg}'")
 
 connection.close()
 
